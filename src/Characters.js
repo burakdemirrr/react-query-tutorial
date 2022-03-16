@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import Character from "./Character";
 
 export default function Characters() {
-  const [page, setPage] = useState(40);
+  const [page, setPage] = useState(1);
 
   const fetchCharacters = async ({ queryKey }) => {
     const response = await fetch(
@@ -21,6 +21,7 @@ export default function Characters() {
   );
 
   console.log(isPreviousData);
+  console.log(data?.results)
 
   if (status === "loading") {
     return <div>Loading...</div>;
